@@ -38,10 +38,10 @@ window.addEventListener('load', async () => {
             const data = await response.json();
             if (data.status === '1') {
                 const etherBalance = web3.utils.fromWei(data.result, 'ether');
-                etherBalanceElement.textContent = etherBalance || '0';
+                etherBalanceElement.textContent = etherBalance || '0.00';
             } else {
                 console.error('Error fetching ether balance:', data.message);
-                etherBalanceElement.textContent = '0';
+                etherBalanceElement.textContent = '0.00';
             }
         } catch (error) {
             console.error('Error fetching ether balance:', error);
