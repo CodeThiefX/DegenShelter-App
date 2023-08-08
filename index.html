@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Dashboard</title>
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #330066, #000);
+            height: fit-content;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .eth-table {
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        tr:nth-child(even) {
+            background-color: #D6EEEE;
+        }
+
+        .holder {
+            padding: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            /* From https://css.glass */
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @media only screen and (max-width: 834px) {
+            .holder {
+                flex-direction: column;
+            }
+
+            .text-heading {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1 style="padding:20px;" class="text-heading">DegenShelter</h1>
+            <button id="connectWalletButton"
+                style="position: absolute;right:20px;top:20px;background-color: #330066;border:0px;color:white;padding: 20px 40px;border-radius:5px;">Connect
+                Wallet</button>
+            <br><br><br><br>
+        </nav>
+    </header>
+    <main>
+        <div
+            style="padding:50px;display:flex;flex-direction:column;justify-content: center;align-items: center;width:100%;">
+            <div class="holder">
+                <div class="eth-table">
+                    <h2>Ether Balance</h2>
+                    <p id="etherBalance">Loading...</p>
+                </div>
+                <div class="eth-table">
+                    <h1 style="width:100%;font-size:20px;">Normal Transactions</h1>
+                    <table id="normalTransactionsTable">
+                        <!-- Normal transactions table rows will be inserted here -->
+                    </table>
+                </div>
+            </div>
+            <div class="holder">
+                <div class="eth-table">
+                    <h1 style="width:100%;font-size:20px;">Internal Transactions</h1>
+                    <table id="internalTransactionsTable">
+                        <!-- Internal transactions table rows will be inserted here -->
+                    </table>
+                </div>
+                <div class="eth-table">
+                    <h1 style="width:100%;font-size:20px;">ERC20 Transactions</h1>
+                    <table id="erc20TokenTable">
+                        <!-- ERC20 token transfer events table rows will be inserted here -->
+                    </table>
+                </div>
+            </div>
+            <div class="holder">
+                <div class="eth-table">
+                    <h1 style="width:100%;font-size:20px;">ERC721 Transactions</h1>
+                    <table id="erc721TokenTable">
+                        <!-- ERC721 token transfer events table rows will be inserted here -->
+                    </table>
+                </div>
+                <div class="eth-table">
+                    <h1 style="width:100%;font-size:20px;">ERC1155 Transactions</h1>
+                    <table id="erc1155TokenTable">
+                        <!-- ERC1155 token transfer events table rows will be inserted here -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
